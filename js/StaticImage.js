@@ -10,7 +10,7 @@ class StaticImage extends GameObject
         super(updateStateMilliseconds); /* as this class extends from GameObject, you must always call super() */
 
         /* These variables depend on the object */
-        this.image = image;
+        this.image = image;//
 
         this.y = 0;
     }
