@@ -11,13 +11,13 @@
 /* images must be declared as global, so that they will load before the game starts  */
 
 let background = new Image();
-background.src = "images/sea.png";
+background.src = "images/sea2.png";
 
 let userImage = new Image();
 userImage.src = "images/surfer.png";
 
 let blockImage = new Image();
-blockImage.src = "images/cat2.png";
+blockImage.src = "images/shark.png";
 
 
 const BACKGROUND = 0;
@@ -36,11 +36,6 @@ foregroundImage.src = "images/wave1.png";
 
 
 /******************* END OF Declare game specific data and functions *****************/
-
-
-
-
-
 
 
 /* Always have a playGame() function                                     */
@@ -62,8 +57,10 @@ function playGame()
     /* Create the various gameObjects for this game. */
     /* This is game specific code. It will be different for each game, as each game will have it own gameObjects */
   
-    gameObjects[BACKGROUND] = new StaticImage(background, 0,10);
-  //  gameObjects[BLOCK] = new StaticImage(blockImage, 0, 0, 100, 100);
+    
+    gameObjects[BACKGROUND] = new ScrollingBackgroundImage(background, 1);
+    var random =Math.floor( Math.random()*3);
+    gameObjects[BLOCK] = new Shark(blockImage, random*100, 100, 100, 100,100);
 
     gameObjects[USER] = new my_game_logic (userImage, 400, 100, 100, 0);
 
